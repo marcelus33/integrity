@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+body {
+  background-color: #990000;
+}
+
+.nav-item.dropdown {
+  margin: 0 1rem 0 0;
+}
+
+.footer {
+  text-align: center;
+  background-color: #333399 !important;
+  color: #cccc66;
+}
+
+.img_container {
+  display: flex;
+  width: 100%;
+  margin: 10vh 0 0 0;
+  justify-content: center;
+}
+
+.main_logo {
+  width: 60%;
+}
+
+/*# sourceMappingURL=style.css.map */

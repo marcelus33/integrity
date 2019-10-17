@@ -5,4 +5,36 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//@import '~bootstrap/scss/bootstrap';
+
+//cmd: sass resources/sass/app.scss public/css/style.css
+
+$bgc: #990000;
+$footer_bgc: #333399;
+$footer_color: #cccc66;
+
+body {
+    background-color: $bgc;
+  }
+  
+  .nav-item.dropdown {
+    margin: 0 1rem 0 0;
+  }
+  
+  .footer {
+    text-align: center;
+    background-color: $footer_bgc !important;
+    color: $footer_color;
+    
+  }
+  
+  .img_container {
+    display: flex;
+    width: 100%;
+    margin: 10vh 0 0 0;
+    justify-content: center;
+  
+  }
+  .main_logo {
+    width: 60%;  
+  }
