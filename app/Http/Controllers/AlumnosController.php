@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Alumno;
 use Illuminate\Http\Request;
+use App\Http\Traits\OperacionesTrait;
 
-class AlumnoController extends Controller
-{
+class AlumnosController extends Controller
+{   
+    use OperacionesTrait;
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   $alumnos = Alumno::take(20)->get();
+        return response()->json($alumnos);
     }
 
     /**
@@ -23,8 +26,9 @@ class AlumnoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   $options = $this->getCreateOptions('alumno');
+        // strtolower(class_basename(Alumno::class))
+        return view('alumnos.create', compact('options'));
     }
 
     /**
@@ -34,8 +38,14 @@ class AlumnoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $this->validate($request, [
+            'nombre_alumno'=>'required',
+            'cedula_numero'=>'required|min:3',
+            'due'=>'max:255'
+          ]);
+          
+        return $request->nombre_alumno;
     }
 
     /**
@@ -44,9 +54,11 @@ class AlumnoController extends Controller
      * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno)
-    {
-        //
+    public function show($id)
+    {   
+        $alumno = Alumno::find($id);
+        $options = $this->getShowOptions('alumno', $id);
+        return view('alumnos.show', compact('alumno', 'options'));
     }
 
     /**
@@ -55,9 +67,11 @@ class AlumnoController extends Controller
      * @param  \App\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
-    {
-        //
+    public function edit($id)
+    {   
+        $alumno = Alumno::find($id);
+        $options = $this->getEditOptions('alumno', $id);
+        return view('alumnos.edit', compact('alumno','options'));
     }
 
     /**
