@@ -16,25 +16,33 @@ $footer_color: #cccc66;
 body {
     background-color: $bgc;
   }
-  
-  .nav-item.dropdown {
+
+nav.navbar {
+    margin: 0 0 1rem 0;
+}
+.nav-item.dropdown {
     margin: 0 1rem 0 0;
   }
   
-  .footer {
+.footer {
     text-align: center;
     background-color: $footer_bgc !important;
     color: $footer_color;
     
   }
   
-  .img_container {
+.img_container {
     display: flex;
     width: 100%;
     margin: 10vh 0 0 0;
     justify-content: center;
   
   }
-  .main_logo {
+
+.main_logo {
     width: 60%;  
   }
+
+#main-sidebar {
+  margin: 0 0 1rem 0;
+}

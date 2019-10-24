@@ -15,7 +15,7 @@
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        <link rel="icon" type="image/ico" href="favicon.ico">
+        <link rel="icon" type="image/ico" href="{{asset('favicon.ico')}}">
     
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -66,9 +66,9 @@
 <body>
 
   <header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">Integrity</a>
+    <!-- Fixed navbar fixed-top-->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{asset('')}}">Integrity</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -141,11 +141,27 @@
   </header>
 
   <!-- Begin page content -->
-  <main role="main" class="container">
-    <div class="img_container">
-        <img class="main_logo" src="img/integrity-logo.png" alt="Logo">
-    </div>
-  </main>
+  <div class="row">  
+  
+  @if (!Request::is('/')) 
+      <div class="col-10 col-md-2 offset-1 offset-md-1">
+          @include('layouts.sidebar') 
+      </div>  
+  @endif
+
+  @if (Request::is('/')) 
+  <div class="col-12">
+  @else
+  <div class="col-10 col-md-8 offset-1 offset-md-0">
+  @endif
+
+    <main role="main" class="container">
+      @yield('content')
+    </main>
+  </div>
+
+
+</div>
 
   <footer class="footer">
     <div class="container">

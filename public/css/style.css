@@ -3,6 +3,10 @@ body {
   background-color: #990000;
 }
 
+nav.navbar {
+  margin: 0 0 1rem 0;
+}
+
 .nav-item.dropdown {
   margin: 0 1rem 0 0;
 }
@@ -22,6 +26,10 @@ body {
 
 .main_logo {
   width: 60%;
+}
+
+#main-sidebar {
+  margin: 0 0 1rem 0;
 }
 
 /*# sourceMappingURL=style.css.map */
