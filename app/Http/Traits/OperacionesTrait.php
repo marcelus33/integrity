@@ -38,17 +38,17 @@ Trait OperacionesTrait
     public function getShowOptions($className, $id)
     {
         return array("$this->path$className/$id/edit"=>'Editar', 
-                     "$this->path$className/destroy/$id"=>'Eliminar', 
+                     "$this->path$className/$id"=>'Borrar', 
                      "$this->path$className/create"=>'Nuevo', 
                      "$this->path$className/"=>'Buscar' );
     }
 
-    public function getIndexOptions($path, $className)
+    public function getIndexOptions($className)
     {
         return array("$this->path$className/create"=>'Nuevo');
     }
 
-    public function getDefaultOptions($path, $className)
+    public function getDefaultOptions($className)
     {
         return array("$this->path$className/create"=>'Nuevo', 
         "$this->path$className/"=>'Buscar'); 
