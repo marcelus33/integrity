@@ -3,6 +3,8 @@
 @include('inc.options_list')
 
 @section('content')
-<h2>Alumno Nro. {{$alumno->id_alumno}}</h2>
+    {{-- Incluimos al partial de la table, le pasamos el modelo, 
+        y los campos que queremos excluir de la tabla --}}
+    @include('inc.showtable', ['model' => $alumno, 'unwanted'=>array('id_alumno')])
 
 @endsection
