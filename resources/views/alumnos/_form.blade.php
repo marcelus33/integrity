@@ -28,8 +28,10 @@
     
     <div class="row">
       <div class="col">
-          {!! Form::hidden('id_padres', 0, array('required')) !!}
-          {{ Form::bsText('padre / tutor', null, array('required')) }}
+          {{-- {!! Form::hidden('id_padres', 0, array('required')) !!} --}}
+          {!! Form::bsText('id_padres', null, array('required')) !!}
+          {{ Form::bsText('padre_o_tutor', isset($alumno)?$alumno->padres->nombre_padre:null ) }}
+          {{-- {{ Form::bsText('padre / tutor', null, array('required')) }} --}}
       </div>
     </div>
 
@@ -38,6 +40,11 @@
           {{ Form::bsTextArea('observacion', null, array('rows'=>4)) }}
       </div>         
     </div>
+
+    @if (isset($alumno))
+        {{ Form::hidden('_method', 'PUT') }}    
+    @endif
+    
 
     {{ Form::bsSubmit('Guardar', ['class'=>'btn btn-primary']) }}
 </div>
